@@ -59,8 +59,8 @@
                         </div>
                         <!-- Display an icon (loaded from database), icon is accompanied by a description, once clicked it adds the id to an array - but how do we send in the form data? -->
                     </div>
-                         <input type="Submit" value="Save Snapshot" class="btn btn-xl btn-success mt-5">
-                         <button class="btn mt-5 btn-xl btn-primary" id="resetbutton">Reset</button>
+                    <input type="Submit" value="Save Snapshot" class="btn btn-xl btn-success mt-5">
+                    <button class="btn mt-5 btn-xl btn-primary" id="resetbutton">Reset</button>
                 </form>
             </div>
         </div>
@@ -72,10 +72,16 @@
 
         emotions.forEach((emotion) => {
             emotionDiv.innerHTML += `<div class="col-lg-6 py-4 m-0">
+                <div class="d-flex justify-content-between">
                         <label for="${emotion}" class="form-label">
                             <h4>Level of ${emotion}</h4>
                         </label>
-                            <input type="range" name="${emotion}" id="${emotion}" class="form-range" min="1" max="10" value="1">
+                        <div id="${emotion}-val-display">
+                            <h3>5</h3>
+                        </div>
+                </div>
+                
+                            <input type="range" name="${emotion}" id="${emotion}" class="form-range" min="1" max="10" value="5">
                         <div class="graduated-scale">
                             <span>1</span>
                             <span>2</span>
@@ -91,20 +97,28 @@
                     </div>`;
         })
 
+        const rangeItems2 = document.querySelectorAll('input[type="range"]');
+        rangeItems2.forEach((range) => {
+            range.addEventListener('input', (event) => {
+                let displayVal = document.getElementById(`${range.id}-val-display`);
+                displayVal.innerHTML = `<h3>${range.value}</h3>`;
+            })
+        })
+
         const triggerDiv = document.getElementById('triggers');
         //const triggers = ['Social interaction', 'Physical activity', 'Family', 'Work', 'Sleep', 'Weather','Alcohol','Coffee','Food','Travel','Dating'];
         const triggers = [
-            {name: 'Social interaction', icon: '<i class="bi bi-people"></i>'},
-            {name: 'Physical activity', icon: '<i class="bi bi-bicycle"></i>'},
-            {name: 'Family', icon: '<i class="bi bi-people"></i>'},
-            {name: 'Work', icon: '<i class="bi bi-laptop"></i>'},
-            {name: 'Sleep', icon: '<i class="bi bi-cloud"></i>'},
-            {name: 'Weather', icon: '<i class="bi bi-brightness-alt-high"></i>'},
-            {name: 'Alcohol', icon: '<i class="bi bi-cup-straw"></i>'},
-            {name: 'Coffee', icon: '<i class="bi bi-cup"></i>'},
-            {name: 'Food', icon: '<i class="bi bi-egg"></i>'},
-            {name: 'Travel', icon: '<i class="bi bi-emoji-sunglasses"></i>'},
-            {name: 'Dating', icon: '<i class="bi bi-emoji-heart-eyes"></i>'}
+            { name: 'Social interaction', icon: '<i class="bi bi-people"></i>' },
+            { name: 'Physical activity', icon: '<i class="bi bi-bicycle"></i>' },
+            { name: 'Family', icon: '<i class="bi bi-people"></i>' },
+            { name: 'Work', icon: '<i class="bi bi-laptop"></i>' },
+            { name: 'Sleep', icon: '<i class="bi bi-cloud"></i>' },
+            { name: 'Weather', icon: '<i class="bi bi-brightness-alt-high"></i>' },
+            { name: 'Alcohol', icon: '<i class="bi bi-cup-straw"></i>' },
+            { name: 'Coffee', icon: '<i class="bi bi-cup"></i>' },
+            { name: 'Food', icon: '<i class="bi bi-egg"></i>' },
+            { name: 'Travel', icon: '<i class="bi bi-emoji-sunglasses"></i>' },
+            { name: 'Dating', icon: '<i class="bi bi-emoji-heart-eyes"></i>' }
         ];
         triggers.forEach((trigger) => {
             triggerDiv.innerHTML += `<input type="checkbox" class="btn-check" name="${trigger.name}" id="${trigger.name}" autocomplete="off" unchecked>
@@ -118,7 +132,10 @@
         resetButton.addEventListener('click', (event) => {
             event.preventDefault();
             rangeItems.forEach((rangeItem) => {
-                rangeItem.value = 1;
+                const valueDiv = document.getElementById(`${rangeItem.id}-val-display`);
+                rangeItem.value = 5;
+                valueDiv.innerHTML = `<h3>5</h3>`;
+
             });
 
             checkboxes.forEach((checkbox) => {
