@@ -45,22 +45,23 @@
 
     <div class="window">
         <div class="window-container-large px-5">
-                <h2 class="mb-5">Record a new snapshot</h2>
-                <form>
-                    <div class="row g-4" id="insertEmotionRanges">
-                        <!-- place data here -->
-                    </div>
-                    <h3 class="mt-4">Select Triggers</h3>
-                    <div class="row mt-4">
+            <h2 class="mb-5">Record a new snapshot</h2>
+            <h4>1. Record your current level of emotion for each of the seven universal emotions.</h4>
+            <form>
+                <div class="row g-4 mt-3" id="insertEmotionRanges">
+                    <!-- place data here -->
+                </div>
+                <h4 class="mt-4">2. Select any contextual triggers</h3>
+                <div class="row mt-4">
 
-                        <div class="d-flex gap-3 flex-wrap" id="triggers">
-                            <!-- Insert triggers here -->
-                        </div>
-                        <!-- Display an icon (loaded from database), icon is accompanied by a description, once clicked it adds the id to an array - but how do we send in the form data? -->
+                    <div class="d-flex gap-3 flex-wrap" id="triggers">
+                        <!-- Insert triggers here -->
                     </div>
-                    <input type="Submit" value="Save Snapshot" class="btn btn-xl btn-success mt-5">
-                    <button class="btn mt-5 btn-xl btn-primary" id="resetbutton">Reset</button>
-                </form>
+                    <!-- Display an icon (loaded from database), icon is accompanied by a description, once clicked it adds the id to an array - but how do we send in the form data? -->
+                </div>
+                <input type="Submit" value="Save Snapshot" class="btn btn-xl btn-success mt-5">
+                <button class="btn mt-5 btn-xl btn-primary" id="resetbutton">Reset</button>
+            </form>
         </div>
     </div>
 
