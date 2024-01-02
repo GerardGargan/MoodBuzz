@@ -70,12 +70,12 @@
 
         emotions.forEach((emotion) => {
             emotionDiv.innerHTML += `<div class="col-lg-6 py-4 m-0">
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between align-items-center">
                         <label for="${emotion}" class="form-label">
                             <h4>Level of ${emotion}</h4>
                         </label>
                         <div id="${emotion}-val-display">
-                            <h3>5</h3>
+                            <h3 class="bg-dark text-light p-3 rounded">5</h3>
                         </div>
                 </div>
                 
@@ -99,7 +99,7 @@
         rangeItems2.forEach((range) => {
             range.addEventListener('input', (event) => {
                 let displayVal = document.getElementById(`${range.id}-val-display`);
-                displayVal.innerHTML = `<h3>${range.value}</h3>`;
+                displayVal.innerHTML = `<h3 class="bg-dark text-light p-3 rounded">${range.value}</h3>`;
             })
         })
 
@@ -132,7 +132,7 @@
             rangeItems.forEach((rangeItem) => {
                 const valueDiv = document.getElementById(`${rangeItem.id}-val-display`);
                 rangeItem.value = 5;
-                valueDiv.innerHTML = `<h3>5</h3>`;
+                valueDiv.innerHTML = `<h3 class="bg-dark text-light p-3 rounded">5</h3>`;
 
             });
 
