@@ -47,7 +47,7 @@
         <div class="window-container-large px-5">
                 <h2 class="mb-5">Record a new snapshot</h2>
                 <form>
-                    <div class="row g-5" id="insertEmotionRanges">
+                    <div class="row g-4" id="insertEmotionRanges">
                         <!-- place data here -->
                     </div>
                     <h3 class="mt-4">Select Triggers</h3>
@@ -69,15 +69,16 @@
         const emotions = ['Enjoyment', 'Sadness', 'Anger', 'Contempt', 'Disgust', 'Fear', 'Surprise'];
 
         emotions.forEach((emotion) => {
-            emotionDiv.innerHTML += `<div class="col-lg-6 py-4 m-0">
-                <div class="d-flex justify-content-between align-items-center">
+            emotionDiv.innerHTML += `<div class="col-xl-6 col-xxl-4 py-3 m-0">
+                <div class="box-shadow bg-dark-subtle py-3 px-4 rounded">
+                    <div class="d-flex justify-content-between align-items-center">
                         <label for="${emotion}" class="form-label">
                             <h4>Level of ${emotion}</h4>
                         </label>
                         <div id="${emotion}-val-display">
                             <h3 class="bg-dark text-light p-3 rounded">5</h3>
                         </div>
-                </div>
+                     </div>
                 
                             <input type="range" name="${emotion}" id="${emotion}" class="form-range" min="1" max="10" value="5">
                         <div class="graduated-scale">
@@ -91,6 +92,7 @@
                             <span>8</span>
                             <span>9</span>
                             <span>10</span>
+                        </div>
                         </div>
                     </div>`;
         })
