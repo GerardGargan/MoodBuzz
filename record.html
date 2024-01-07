@@ -59,6 +59,10 @@
                     </div>
                     <!-- Display an icon (loaded from database), icon is accompanied by a description, once clicked it adds the id to an array - but how do we send in the form data? -->
                 </div>
+                <h4 class="mt-4">3. Record any notes</h4>
+                <div class="row mt-4">
+                    <textarea name="notes" id="notes" placeholder="Enter notes"></textarea>
+                </div>
                 <input type="Submit" value="Save Snapshot" class="btn btn-xl btn-success mt-5">
                 <button class="btn mt-5 btn-xl btn-primary" id="resetbutton">Reset</button>
             </form>
@@ -129,6 +133,7 @@
         const resetButton = document.getElementById('resetbutton');
         const rangeItems = document.querySelectorAll('input[type="range"]');
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const notes = document.getElementById('notes');
 
         resetButton.addEventListener('click', (event) => {
             event.preventDefault();
@@ -136,6 +141,7 @@
                 const valueDiv = document.getElementById(`${rangeItem.id}-val-display`);
                 rangeItem.value = 5;
                 valueDiv.innerHTML = `<h3 class="bg-dark text-light p-3 rounded">5</h3>`;
+                notes.value = '';
 
             });
 
